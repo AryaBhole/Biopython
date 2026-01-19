@@ -4,7 +4,7 @@ pygame.init()
 
 screen = pygame.display.set_mode((640, 640))
 
-image = pygame.image.load('Biopython/Pixel_art_Pokemon_Salemeche.png').convert()
+image = pygame.image.load('Pixel_art_Pokemon_Salemeche.png').convert()
 
 running = True
 x = 0
