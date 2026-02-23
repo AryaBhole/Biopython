@@ -1,0 +1,8 @@
+Random DNA : 
+GAACAAAAGG
+ 
+Complement : 
+CTTGTTTTCC
+ 
+Rev Complement : 
+CCTTTTGTTC

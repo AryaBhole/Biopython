@@ -8,3 +8,7 @@ data = np.arange(20).reshape(4, 5)
 print(data)
 #print(data[:, 2])
 print(data[1:3, 2:5])
+
+rng = np.random.default_rng()
+
+print(rng.integers(1, 11, 2))
