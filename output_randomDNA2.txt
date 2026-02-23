@@ -1,0 +1,8 @@
+Original Sequence:
+AAGCTCCACG
+
+Complement Sequence:
+TTCGAGGTGC
+
+Reverse Complement Sequence:
+CGTGGAGCTT
