@@ -21,7 +21,7 @@ CODON_TABLE = {
     "AGT":"S","AGC":"S","AGA":"R","AGG":"R","GGT":"G","GGC":"G","GGA":"G","GGG":"G",
 }
 
-# known motifs which i had to look up for this
+# known motifs which i had to look up for this through ai
 KNOWN_MOTIFS = {
     "TATA_box"       : r"TATA[AT]A[AT]",
     "Kozak_sequence" : r"[AG]CCATGG",
