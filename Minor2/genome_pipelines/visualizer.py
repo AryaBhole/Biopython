@@ -37,18 +37,35 @@ def plot_gc_at_pie(analysis, output_path):
     print("Saved:", output_path)
 
 # Codon heatmap
-def plot_codon_heatmap(codon_counts, output_path):
-    codons = list(codon_counts.keys())
-    counts = list(codon_counts.values())
-    data = np.array(counts).reshape(-1,1)
-    plt.figure()
-    sns.heatmap(data,
-                yticklabels=codons,
-                xticklabels=["Count"])
+# def plot_codon_heatmap(codon_counts, output_path):
+#     codons = list(codon_counts.keys())
+#     counts = list(codon_counts.values())
+#     data = np.array(counts).reshape(-1,1)
+#     plt.figure()
+    #  sns.heatmap(data,
+    #              yticklabels=codons,
+    #              xticklabels=["Count"])
+#     plt.title("Codon Usage Heatmap")
+#     plt.savefig(output_path)
+#     plt.close()
+#     print("Saved:", output_path)
+def plot_codon_heatmap(codon_counts, filename):
+    import matplotlib.pyplot as plt
+    # sort codons by frequency and take top 20
+    sorted_codons = sorted(codon_counts, key=codon_counts.get, reverse=True)[:20]
+    counts = [codon_counts[c] for c in sorted_codons]
+    # heatmap matrix (1 row)
+    matrix = [counts]
+    plt.figure(figsize=(12,4))
+    plt.imshow(matrix, aspect="auto")
+    plt.xticks(range(len(sorted_codons)), sorted_codons, rotation=90)
+    plt.yticks([])
     plt.title("Codon Usage Heatmap")
-    plt.savefig(output_path)
+    plt.colorbar()
+    plt.tight_layout()
+    plt.savefig(filename)
     plt.close()
-    print("Saved:", output_path)
+    print("Saved:", filename)
 
 # GC sliding window plot
 def plot_gc_window(window_gc, output_path):
@@ -76,17 +93,33 @@ def plot_orf_lengths(orfs, output_path):
     print("Saved:", output_path)
 
 # Motif summary plot
-def plot_motif_summary(motif_results, output_path):
-    names = list(motif_results.keys())
-    counts = [len(v) for v in motif_results.values()]
-    plt.figure()
+# def plot_motif_summary(motif_results, output_path):
+#     names = list(motif_results.keys())
+#     counts = [len(v) for v in motif_results.values()]
+#     plt.figure()
+#     plt.bar(names, counts)
+#     plt.title("Motif Occurrences")
+#     plt.xlabel("Motif")
+#     plt.ylabel("Count")
+#     plt.savefig(output_path)
+#     plt.close()
+#     print("Saved:", output_path)
+def plot_motif_summary(motifs, filename):
+    import matplotlib.pyplot as plt
+    names = []
+    counts = []
+    for m in motifs:
+        names.append(m)
+        counts.append(len(motifs[m]))
+    plt.figure(figsize=(10,5))
     plt.bar(names, counts)
-    plt.title("Motif Occurrences")
-    plt.xlabel("Motif")
+    plt.xticks(rotation=45)  # rotate labels so they don't overlap
     plt.ylabel("Count")
-    plt.savefig(output_path)
+    plt.title("Motif Occurrence")
+    plt.tight_layout()  # prevents cropping
+    plt.savefig(filename)
     plt.close()
-    print("Saved:", output_path)
+    print("Saved:", filename)
 
 def generate_all_plots(analysis, orfs, motifs, codon_counts, prefix= ""):
     plot_nucleotide_frequency(analysis, prefix + "nucleotide_freq.png")
