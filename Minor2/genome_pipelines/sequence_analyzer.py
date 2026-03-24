@@ -11,14 +11,12 @@ def count_nucleotides(sequence):
             counts[base] += 1
     return counts
 
-
 def nucleotide_frequency(sequence, counts=None):
     # If counts are not given, count nucleotides first
     if counts is None:
         counts = count_nucleotides(sequence)
 
     total = len(sequence)
-
     # If sequence empty return 0
     if total == 0:
         return {k:0.0 for k in counts}
@@ -26,9 +24,7 @@ def nucleotide_frequency(sequence, counts=None):
     result = {}
     for k in counts:
         result[k] = round((counts[k] / total) * 100, 4)
-
     return result
-
 
 def calculate_gc_content(sequence):
     sequence = sequence.upper()
@@ -36,13 +32,11 @@ def calculate_gc_content(sequence):
     c = sequence.count("C")
     return ((g + c) / len(sequence)) * 100 if len(sequence) > 0 else 0.0
 
-
 def calculate_at_content(sequence):
     sequence = sequence.upper()
     a = sequence.count("A")
     t = sequence.count("T")
     return ((a + t) / len(sequence)) * 100 if len(sequence) > 0 else 0.0
-
 
 # sliding window GC
 def sliding_window_gc(sequence, window=50):
@@ -56,7 +50,6 @@ def sliding_window_gc(sequence, window=50):
         results.append((i, gc))
 
     return results
-
 
 # main analyzer which uses methods above
 def analyze_sequence(sequence):
@@ -88,7 +81,6 @@ def analyze_sequence(sequence):
     print("End Analyzer\n")
 
     return results
-
 
 # to print summary later in main file
 def print_summary_table(analysis):
