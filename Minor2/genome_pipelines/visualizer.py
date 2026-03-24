@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-output_path = r"C:\Users\bhole\OneDrive\Desktop\Arya\Python\Biopython\Biopython\Minor2\genome_pipelines\pipeline_output"
+#output_path = r"C:\Users\bhole\OneDrive\Desktop\Arya\Python\Biopython\Biopython\Minor2\genome_pipelines\pipeline_output"
 
 # Bar plot of nucleotide frequency
 def plot_nucleotide_frequency(analysis, output_path):

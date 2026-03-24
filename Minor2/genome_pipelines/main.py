@@ -22,29 +22,29 @@ def main():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
 
-    # 1️⃣ Fetch sequence from NCBI
+    # Fetch sequence from NCBI
     seq_data = fetch_sequence_from_ncbi(ACCESSION, DB)
     sequence = seq_data["sequence"]
 
-    # 2️⃣ Save FASTA file
+    # Save FASTA file
     fasta_file = os.path.join(OUTPUT_DIR, f"{ACCESSION}.fasta")
     save_fasta(seq_data, fasta_file)
 
-    # 3️⃣ Analyze sequence
+    # Analyze sequence
     analysis = analyze_sequence(sequence)
 
     # Print results
     print_summary_table(analysis)
 
-    # 4️⃣ Detect ORFs
+    # Detect ORFs
     orfs = find_orfs(sequence, MIN_ORF)
 
     print_orf_table(orfs)
 
-    # 5️⃣ Find motifs
+    # Find motifs
     motifs = find_motifs(sequence)
 
-    # 6️⃣ Visualize results
+    # Visualize results
     generate_all_plots(analysis, orfs, motifs, OUTPUT_DIR)
     print("\nPipeline finished successfully\n")
 

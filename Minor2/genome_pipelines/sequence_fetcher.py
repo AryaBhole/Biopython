@@ -60,7 +60,7 @@ def _parse_fasta(fasta_text, accession_id):
         "seq_type"   : "DNA" if is_dna else "Protein"
     }
 
-filepath = r"C:\Users\bhole\OneDrive\Desktop\Arya\Python\Biopython\Biopython\Minor2\genome_pipelines\pipeline_output"
+#filepath = r"C:\Users\bhole\OneDrive\Desktop\Arya\Python\Biopython\Biopython\Minor2\genome_pipelines\pipeline_output"
 
 def save_fasta(seq_data, filepath):
     with open(filepath, "w") as f:
