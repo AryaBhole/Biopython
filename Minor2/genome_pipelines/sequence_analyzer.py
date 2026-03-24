@@ -35,6 +35,7 @@ def calculate_gc_content(sequence):
     sequence = sequence.upper()
     g = sequence.count("G")
     c = sequence.count("C")
+    # learned this else method
     return ((g + c) / len(sequence)) * 100 if len(sequence) > 0 else 0.0
 
 def calculate_at_content(sequence):
