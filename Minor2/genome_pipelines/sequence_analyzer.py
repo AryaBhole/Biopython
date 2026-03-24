@@ -79,24 +79,22 @@ def analyze_sequence(sequence):
     print(f"  Length     : {results['length']} bp")
     print(f"  GC Content : {gc:.2f}%")
     print(f"  AT Content : {at:.2f}%")
-    print(f"  GC/AT Ratio: {ratio:.4f}")
+    print(f"  GC/AT Ratio: {ratio:.2f}")
     print("End Analyzer\n")
     return results
 
 # to print summary later in main file
 def print_summary_table(analysis):
-    #ai used to add this formatting as my code was really cluttered
-    print("\n\n" + "=" * 50)
-    print("     SEQUENCE ANALYSIS SUMMARY TABLE")
-    print("=" * 50)
-    print(f"  {'Sequence Length':<25} {analysis['length']:>10,} bp")
-    print(f"  {'GC Content':<25} {analysis['gc_content']:>9.2f}%")
-    print(f"  {'AT Content':<25} {analysis['at_content']:>9.2f}%")
-    print(f"  {'GC/AT Ratio':<25} {analysis['gc_at_ratio']:>10.4f}")
-    print("-" * 50)
-    print(f"  {'Nucleotide':<15} {'Count':>10} {'Freq (%)':>10}")
-    print("-" * 50)
-    for nuc, count in analysis["nucleotide_counts"].items():
+    print("\nSequence Analysis Summary")
+
+    print("Sequence Length:", analysis["length"], "bp")
+    print("GC Content:", round(analysis["gc_content"], 2), "%")
+    print("AT Content:", round(analysis["at_content"], 2), "%")
+    print("GC/AT Ratio:", round(analysis["gc_at_ratio"], 4))
+
+    print("\nNucleotide Counts and Frequency")
+
+    for nuc in analysis["nucleotide_counts"]:
+        count = analysis["nucleotide_counts"][nuc]
         freq = analysis["nucleotide_frequency"][nuc]
-        print(f"  {nuc:<15} {count:>10,} {freq:>9.2f}%")
-    print("=" * 50)
+        print(nuc, "Count:", count, "Frequency:", round(freq, 2), "%")
