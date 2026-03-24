@@ -1,0 +1,1 @@
+# Computes sequence length, counts each nucleotide (A/T/G/C/N), calculates GC%, AT%, GC/AT ratio, and a sliding window GC profile (window=50, step=25).
