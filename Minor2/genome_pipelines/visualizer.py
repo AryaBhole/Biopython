@@ -88,7 +88,7 @@ def plot_motif_summary(motif_results, output_path):
     plt.close()
     print("Saved:", output_path)
 
-def generate_all_plots(analysis, orfs, motifs, codon_counts, prefix=output_path + "/"):
+def generate_all_plots(analysis, orfs, motifs, codon_counts, prefix= ""):
     plot_nucleotide_frequency(analysis, prefix + "nucleotide_freq.png")
     plot_gc_at_pie(analysis, prefix + "gc_at_pie.png")
     plot_codon_heatmap(codon_counts, prefix + "codon_heatmap.png")
