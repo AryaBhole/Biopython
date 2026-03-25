@@ -21,7 +21,6 @@ def plot_nucleotide_frequency(analysis, output_path):
     plt.ylabel("Percentage")
     plt.savefig(output_path)
     plt.close()
-    print("Saved:", output_path)
 
 # Pie chart for GC vs AT
 def plot_gc_at_pie(analysis, output_path):
@@ -34,7 +33,6 @@ def plot_gc_at_pie(analysis, output_path):
     plt.title("GC vs AT Content")
     plt.savefig(output_path)
     plt.close()
-    print("Saved:", output_path)
 
 # Codon heatmap
 # def plot_codon_heatmap(codon_counts, output_path):
@@ -48,7 +46,6 @@ def plot_gc_at_pie(analysis, output_path):
 #     plt.title("Codon Usage Heatmap")
 #     plt.savefig(output_path)
 #     plt.close()
-#     print("Saved:", output_path)
 def plot_codon_heatmap(codon_counts, filename):
     import matplotlib.pyplot as plt
     # sort codons by frequency and take top 20
@@ -65,7 +62,6 @@ def plot_codon_heatmap(codon_counts, filename):
     plt.tight_layout()
     plt.savefig(filename)
     plt.close()
-    print("Saved:", filename)
 
 # GC sliding window plot
 def plot_gc_window(window_gc, output_path):
@@ -78,7 +74,6 @@ def plot_gc_window(window_gc, output_path):
     plt.ylabel("GC %")
     plt.savefig(output_path)
     plt.close()
-    print("Saved:", output_path)
 
 # ORF length bar plot
 def plot_orf_lengths(orfs, output_path):
@@ -90,7 +85,6 @@ def plot_orf_lengths(orfs, output_path):
     plt.ylabel("Length")
     plt.savefig(output_path)
     plt.close()
-    print("Saved:", output_path)
 
 # Motif summary plot
 # def plot_motif_summary(motif_results, output_path):
@@ -119,7 +113,6 @@ def plot_motif_summary(motifs, filename):
     plt.tight_layout()  # prevents cropping
     plt.savefig(filename)
     plt.close()
-    print("Saved:", filename)
 
 def generate_all_plots(analysis, orfs, motifs, codon_counts, prefix= ""):
     plot_nucleotide_frequency(analysis, prefix + "nucleotide_freq.png")
