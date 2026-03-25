@@ -52,7 +52,7 @@ def translate_sequence(dna_seq):
 
 def find_motifs(sequence, custom_motifs=None):
     sequence = sequence.upper()
-    motifs = dict(KNOWN_MOTIFS)
+    motifs = KNOWN_MOTIFS.copy()
     if custom_motifs:
         motifs.update(custom_motifs)
 
