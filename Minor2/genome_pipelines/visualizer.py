@@ -48,7 +48,7 @@ def plot_gc_at_pie(analysis, output_path):
 #     plt.close()
 def plot_codon_heatmap(codon_counts, filename):
     import matplotlib.pyplot as plt
-    # sort codons by frequency and take top 20
+    # sort codons by frequency and take top 20 as image was getting too cluttered previous code is above
     sorted_codons = sorted(codon_counts, key=codon_counts.get, reverse=True)[:20]
     counts = [codon_counts[c] for c in sorted_codons]
     # heatmap matrix (1 row)
@@ -107,7 +107,7 @@ def plot_motif_summary(motifs, filename):
         counts.append(len(motifs[m]))
     plt.figure(figsize=(10,5))
     plt.bar(names, counts)
-    plt.xticks(rotation=45)  # rotate labels so they don't overlap
+    plt.xticks(rotation=45)  # rotate labels so they don't overlap used error resolving ai as my image was too cluttered
     plt.ylabel("Count")
     plt.title("Motif Occurrence")
     plt.tight_layout()  # prevents cropping
