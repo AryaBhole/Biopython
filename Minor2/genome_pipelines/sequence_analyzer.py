@@ -26,13 +26,13 @@ def calculate_gc_content(sequence):
     sequence = sequence.upper()
     g = sequence.count("G")
     c = sequence.count("C")
-    return ((g + c) / len(sequence)) * 100 if len(sequence) > 0 else 0.0
+    return ((g + c) / len(sequence)) * 100
 
 def calculate_at_content(sequence):
     sequence = sequence.upper()
     a = sequence.count("A")
     t = sequence.count("T")
-    return ((a + t) / len(sequence)) * 100 if len(sequence) > 0 else 0.0
+    return ((a + t) / len(sequence)) * 100
 
 # sliding window GC had to use ai
 def sliding_window_gc(sequence, window=50):
