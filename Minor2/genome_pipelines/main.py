@@ -1,5 +1,4 @@
 # main.py
-# Runs the genome analysis pipeline using different modules
 
 from sequence_fetcher import fetch_sequence_from_ncbi, save_fasta
 from sequence_analyzer import analyze_sequence, print_summary_table
