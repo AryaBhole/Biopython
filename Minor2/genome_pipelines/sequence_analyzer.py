@@ -79,8 +79,6 @@ def print_summary_table(analysis):
     print("AT Content:", round(analysis["at_content"],2), "%")
     print("GC/AT Ratio:", round(analysis["gc_at_ratio"],4))
 
-    print("\nNucleotide Counts and Frequency")
-
     for nuc in analysis["nucleotide_counts"]:
         count = analysis["nucleotide_counts"][nuc]
         freq = analysis["nucleotide_frequency"][nuc]
