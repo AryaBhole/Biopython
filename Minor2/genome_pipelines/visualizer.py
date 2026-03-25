@@ -1,11 +1,8 @@
 # Generates 6 publication-quality plots — nucleotide frequency bar chart, GC/AT pie charts, codon usage heatmap, sliding window GC line plot, ORF length bar chart by frame, and motif occurrence summary.
 
-# learned about heatmap so sns is required
 #### Generates 6 plots: nucleotide bar, GC/AT pie, codon heatmap, sliding-window GC, ORF lengths, and motif summary
 
 import matplotlib.pyplot as plt
-import numpy as np
-import seaborn as sns
 
 #output_path = r"C:\Users\bhole\OneDrive\Desktop\Arya\Python\Biopython\Biopython\Minor2\genome_pipelines\pipeline_output"
 
@@ -48,7 +45,7 @@ def plot_gc_at_pie(analysis, output_path):
 #     plt.close()
 def plot_codon_heatmap(codon_counts, filename):
     import matplotlib.pyplot as plt
-    # sort codons by frequency and take top 20 as image was getting too cluttered previous code is above
+    # sort codons by frequency and take top 20 as image was getting too cluttered previous code is above (also removed sns and np as it is not required with this code)
     sorted_codons = sorted(codon_counts, key=codon_counts.get, reverse=True)[:20]
     counts = [codon_counts[c] for c in sorted_codons]
     # heatmap matrix (1 row)
