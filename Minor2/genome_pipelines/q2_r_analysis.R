@@ -1,79 +1,71 @@
-# Create output folder
-#added dev off after asking ai for error solution
-if(!dir.exists("r_output")){
-  dir.create("r_output")
-}
+data("ToothGrowth")
+head(ToothGrowth)
 
-data <- mtcars
+# Summary statistics
+summary_stats <- summary(ToothGrowth)
 
-# Save console output to file
-sink("r_output/statistical_output.txt")
+# Mean tooth length
+mean_len <- mean(ToothGrowth$len)
 
-print("First rows of dataset:")
-head(data)
+# Median tooth length
+median_len <- median(ToothGrowth$len)
 
-print("Dataset structure:")
-str(data)
+# Standard deviation
+sd_len <- sd(ToothGrowth$len)
 
-print("Summary statistics:")
-summary(data)
+# Create statistics table
+stats_table <- data.frame(
+  Mean = mean_len,
+  Median = median_len,
+  SD = sd_len
+)
+print(stats_table)
 
-mean_mpg <- mean(data$mpg)
-median_mpg <- median(data$mpg)
-sd_mpg <- sd(data$mpg)
+write.csv(stats_table, "r_output/statistics_table.csv")
 
-print(paste("Mean MPG:", mean_mpg))
-print(paste("Median MPG:", median_mpg))
-print(paste("Standard Deviation MPG:", sd_mpg))
+group_mean <- aggregate(len ~ supp, data = ToothGrowth, mean)
 
-print("Cylinder frequency table:")
-table(data$cyl)
+print(group_mean)
 
-print("Correlation between MPG and Horsepower:")
-cor(data$mpg, data$hp)
+write.csv(group_mean, "r_output/group_mean.csv")
 
-#barplot
-png("r_output/barplot_cylinders.png")
-barplot(table(data$cyl),
-        main="Number of Cars by Cylinders",
-        xlab="Cylinders",
-        ylab="Count",
-        col="skyblue")
+# Histogram
+png("r_output/histogram.png")
+hist(ToothGrowth$len,
+     main = "Histogram of Tooth Length",
+     xlab = "Tooth Length",
+     col = "lightblue")
 dev.off()
 
-#histogram
-png("r_output/mpg_histogram.png")
-hist(data$mpg,
-     main="MPG Distribution",
-     xlab="Miles per Gallon",
-     col="lightgreen")
+# Boxplot
+png("r_output/boxplot.png")
+boxplot(len ~ supp,
+        data = ToothGrowth,
+        main = "Tooth Length by Supplement",
+        xlab = "Supplement Type",
+        ylab = "Tooth Length",
+        col = c("orange","green"))
 dev.off()
 
-#scatterplot
-png("r_output/mpg_vs_hp_scatter.png")
-plot(data$hp, data$mpg,
-     main="MPG vs Horsepower",
-     xlab="Horsepower",
-     ylab="MPG",
-     col="red",
-     pch=19)
+# Bar Plot (Mean Tooth Length)
+png("r_output/barplot.png")
+barplot(group_mean$len,
+        names.arg = group_mean$supp,
+        main = "Average Tooth Length by Supplement",
+        xlab = "Supplement",
+        ylab = "Mean Length",
+        col = "purple")
 dev.off()
 
-#boxplot
-png("r_output/mpg_boxplot.png")
-boxplot(mpg ~ cyl,
-        data=data,
-        main="MPG by Cylinders",
-        xlab="Cylinders",
-        ylab="MPG",
-        col="orange")
+# Scatter Plot
+png("r_output/scatterplot.png")
+plot(ToothGrowth$dose,
+     ToothGrowth$len,
+     main = "Dose vs Tooth Length",
+     xlab = "Dose",
+     ylab = "Tooth Length",
+     col = "red",
+     pch = 19)
 dev.off()
 
-#piechart
-png("r_output/cylinder_pie_chart.png")
-pie(table(data$cyl),
-    main="Cylinder Distribution",
-    col=c("lightblue","lightgreen","pink"))
-dev.off()
-
-print("All outputs saved in r_output folder")
+cat("Analysis complete. Output saved in r_output folder.")

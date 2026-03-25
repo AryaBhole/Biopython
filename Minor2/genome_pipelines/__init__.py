@@ -1,5 +1,4 @@
 # __init__.py
-# Initializes the genome_pipelines package
 
 from .sequence_fetcher import fetch_sequence_from_ncbi, save_fasta
 from .sequence_analyzer import analyze_sequence, print_summary_table

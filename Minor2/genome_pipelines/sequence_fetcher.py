@@ -1,3 +1,4 @@
+# sequence_fetcher.py
 # Fetches FASTA from NCBI via Entrez URL (no Biopython needed), parses header from sequence, saves .fasta file, falls back to a built-in BRCA1 demo sequence if offline.
 # Spent time learning about basics being used here using those + ai to help me build this project which consists of a lot of new stuff
 

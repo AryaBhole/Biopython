@@ -1,3 +1,4 @@
+# sequence_analyzer.py
 # Computes sequence length, counts each nucleotide (A/T/G/C/N), calculates GC%, AT%, GC/AT ratio, and a sliding window GC profile (window=50, step=25).
 #### Calculates GC/AT content, nucleotide frequencies, and sliding window GC.
 # I know a lot about this file as something similar is used before in class

@@ -1,3 +1,4 @@
+# orf_motif_finder.py
 # An Open Reading Frame (ORF) is a continuous stretch of codons that begins with a start codon (ATG)
 # and ends with a stop codon (TAA, TAG, TGA).
 # Scans all 6 reading frames (+1,+2,+3 and reverse complement -1,-2,-3)
@@ -22,7 +23,7 @@ CODON_TABLE = {
     "AGT":"S","AGC":"S","AGA":"R","AGG":"R","GGT":"G","GGC":"G","GGA":"G","GGG":"G",
 }
 
-# known motifs which i had to look up for this through ai
+# known motifs which i had to look up for this through web
 KNOWN_MOTIFS = {
     "TATA_box" : r"TATA[AT]A[AT]",
     "Kozak_sequence" : r"[AG]CCATGG",
