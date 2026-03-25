@@ -12,10 +12,6 @@ def count_nucleotides(sequence):
     return counts
 
 def nucleotide_frequency(sequence, counts=None):
-    # If counts are not given, count nucleotides first
-    if counts is None:
-        counts = count_nucleotides(sequence)
-
     total = len(sequence)
     # If sequence empty return 0
     if total == 0:
