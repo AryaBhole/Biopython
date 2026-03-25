@@ -122,4 +122,5 @@ def generate_all_plots(analysis, orfs, motifs, codon_counts, prefix= ""):
                    prefix + "gc_window.png")
     plot_orf_lengths(orfs, prefix + "orf_lengths.png")
     plot_motif_summary(motifs, prefix + "motif_summary.png")
-    print("All plots created")
+    print("\nNucleotide Frequency Bar Plot\nGC Content Pie Chart\nCodon Heatmap\nGC Sliding Window Line Plot\nORF Length Bar Plot\nMotif Summary Bar Plot")
+    print("All plots created and saved in output directory")
