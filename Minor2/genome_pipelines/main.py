@@ -10,14 +10,12 @@ from visualizer import generate_all_plots
 import os
 
 # Default parameters (given in assignment)
-ACCESSION  = "NM_007294"      # BRCA1 mRNA
+ACCESSION  = "NM_000546"
 DB         = "nucleotide"
 MIN_ORF    = 90
 OUTPUT_DIR = "pipeline_output"
 
 def main():
-
-    print("\n=== GENOME ANALYSIS PIPELINE ===\n")
     # Create output folder if it doesn't exist
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
