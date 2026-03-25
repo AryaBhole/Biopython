@@ -148,7 +148,7 @@ def _scan_frame(sequence, frame_offset, strand):
     return orfs
 
 # this is for later
-def print_orf_table(orfs, top_n=10):
+def print_orf_table(orfs, top_n=5):
     print("\nTop ORFs")
     print(f"{'#':<4}{'Frame':<6}{'Start':<8}{'End':<8}{'Length':<8}{'Protein Preview'}")
 
