@@ -9,18 +9,14 @@ from orf_motif_finder import find_orfs, find_motifs, print_orf_table, codon_usag
 from visualizer import generate_all_plots
 import os
 
-# Default parameters (given in assignment)
+# This ACCESSION can be changed to any valid id to get the particular plots
 ACCESSION  = "NM_000546"
 DB         = "nucleotide"
 MIN_ORF    = 90
 OUTPUT_DIR = "pipeline_output"
 
 def main():
-    # Create output folder if it doesn't exist
-    if not os.path.exists(OUTPUT_DIR):
-        os.makedirs(OUTPUT_DIR)
-
-    # Fetch sequence from NCBI
+    # Fetch sequence from NCBI sequence fetcher file
     seq_data = fetch_sequence_from_ncbi(ACCESSION, DB)
     sequence = seq_data["sequence"]
 
@@ -28,21 +24,18 @@ def main():
     fasta_file = os.path.join(OUTPUT_DIR, f"{ACCESSION}.fasta")
     save_fasta(seq_data, fasta_file)
 
-    # Analyze sequence
+    # Analyzer file
     analysis = analyze_sequence(sequence)
-
-    # Print results
     print_summary_table(analysis)
 
-    # Detect ORFs
+    # ORF file
     orfs = find_orfs(sequence, MIN_ORF)
-
     print_orf_table(orfs)
 
-    # Find motifs
     motifs = find_motifs(sequence)
     codon_counts = codon_usage(sequence)
-    # Visualize results
+    
+    # Visualizer file
     generate_all_plots(analysis, orfs, motifs, codon_counts, OUTPUT_DIR + "/")
     print("\nPipeline finished successfully\n")
 
