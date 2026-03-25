@@ -150,16 +150,16 @@ def _scan_frame(sequence, frame_offset, strand):
 # this is for later
 def print_orf_table(orfs, top_n=10):
     print("\nTop ORFs")
-    print("Frame   Start   End   Length")
+    print(f"{'#':<4}{'Frame':<6}{'Start':<8}{'End':<8}{'Length':<8}{'Protein Preview'}")
 
-    for i, orf in enumerate(orfs[:top_n]):
+    for i, orf in enumerate(orfs[:top_n], 1):
         preview = orf["protein"][:20]
 
         print(
-            i+1,
-            orf["frame"],
-            orf["start"],
-            orf["end"],
-            orf["length"],
-            preview
+            f"{i:<4}"
+            f"{orf['frame']:<6}"
+            f"{orf['start']:<8}"
+            f"{orf['end']:<8}"
+            f"{orf['length']:<8}"
+            f"{preview}"
         )

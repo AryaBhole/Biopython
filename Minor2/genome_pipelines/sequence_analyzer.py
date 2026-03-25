@@ -38,7 +38,7 @@ def calculate_at_content(sequence):
     t = sequence.count("T")
     return ((a + t) / len(sequence)) * 100 if len(sequence) > 0 else 0.0
 
-# sliding window GC
+# sliding window GC had to use ai
 def sliding_window_gc(sequence, window=50):
     sequence = sequence.upper()
     results = []
@@ -54,7 +54,6 @@ def sliding_window_gc(sequence, window=50):
 # main analyzer which uses methods above
 def analyze_sequence(sequence):
     sequence = sequence.upper()
-    print("\nStart Analyzer")
 
     counts = count_nucleotides(sequence)
     freq = nucleotide_frequency(sequence, counts)
@@ -73,13 +72,6 @@ def analyze_sequence(sequence):
         "gc_at_ratio": ratio,
         "sliding_window_gc": window,
     }
-
-    print("Length:", results["length"], "bp")
-    print("GC Content:", round(gc,2), "%")
-    print("AT Content:", round(at,2), "%")
-    print("GC/AT Ratio:", round(ratio,2))
-    print("End Analyzer\n")
-
     return results
 
 # to print summary later in main file
